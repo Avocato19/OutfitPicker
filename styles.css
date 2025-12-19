@@ -8,7 +8,7 @@ body{
     background: url('https://thumbs.dreamstime.com/b/nice-background-elegant-clothes-room-colors-350366318.jpg') no-repeat center fixed;
     background-size: cover;
     height: 100vh;
-    font-family: cursive;
+    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
 }
 
 .container{
