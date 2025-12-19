@@ -17,40 +17,105 @@ body{
     padding: 2rem;
 }
 
+/* ---------- HEADER ---------- */
+
 header{
     backdrop-filter: blur(1.5px);
     text-align: center;
     border-radius: 12px;
     margin-bottom: 2rem;
 }
-    h2{
-        color: rgba(96, 96, 216, 0.648);
-        text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.499);
-        margin-bottom: 0.2rem;
-    }
-    header p{
-        color: rgb(31, 126, 227);
-        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.708);
-        font-size: 0.94rem;
-        margin-bottom: 1rem;
-    }
-    button{
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        border:none;
-    }
 
-.wrapper{
-    display: flex;
-    gap: 5px;
+header h2{
+    color: rgba(96, 96, 216, 0.648);
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.499);
+    margin-bottom: 0.2rem;
+}
+
+header p{
+    color: rgb(31, 126, 227);
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.708);
+    font-size: 0.94rem;
+    margin-bottom: 1rem;
+    font-family: sans-serif;
+}
+
+button{
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* ---------- CARD LAYOUT ---------- */
+.wrapper {
+    display: flex;     /* allow cards to wrap to next row */
+    gap: 10px;            /* space between cards */
+    justify-content: center;  /* center cards horizontally */
+    max-width: 720px;        /* 3 cards * 220px width + gaps */
+    margin: 0 auto;          /* center wrapper on page */
 }
 
 .card-container{
-    background: white;
-    padding: 5px;
+    width: 220px;
+    perspective: 1200px;
 }
 
+/* ---------- CARD FLIP SYSTEM ---------- */
+
+.card-inner{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border-radius: 12px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    cursor: pointer;
+}
+
+.card-container.flipped .card-inner{
+    transform: rotateY(180deg);
+}
+
+/* ---------- CARD FACES ---------- */
+
+.card-front,
+.card-back{
+    backface-visibility: hidden;
+}
+
+.card-front p{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.card-back{
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* ---------- IMAGE ---------- */
+
 img{
-    width: 100px;
+    width: 100%;
     height: auto;
+    border-radius: 10px;
 }
