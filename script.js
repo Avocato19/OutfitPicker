@@ -3,26 +3,22 @@ const cards = Array.from(document.querySelectorAll(".card-container"))
 
 let canPick = false
 
-// Store original front content
 const fronts = cards.map(card => card.querySelector(".card-front").innerHTML)
 
 shuffleBtn.addEventListener("click", async () => {
     canPick = false
 
-    // flip all cards face-down
     cards.forEach(card => card.classList.add("flipped"))
     cards.forEach(card => card.querySelector(".card-inner").style.transform = "rotateY(180deg)")
 
     await delay(400)
 
-    // shuffle phase
     for (let i = 0; i < 8; i++) {
         shuffleContents()
         visualShuffle()
         await delay(250)
     }
 
-    // reset positions visually
     cards.forEach(card => card.querySelector(".card-inner").style.transform = "rotateY(180deg)")
 
     canPick = true
@@ -53,13 +49,11 @@ cards.forEach(card => {
     card.addEventListener("click", () => {
         if (!canPick) return
 
-        // flip all face-down
         cards.forEach(c => {
             c.classList.add("flipped")
             c.querySelector(".card-inner").style.transform = "rotateY(180deg)"
         })
 
-        // reveal clicked card
         const inner = card.querySelector(".card-inner")
         card.classList.remove("flipped")
         inner.style.transform = ""

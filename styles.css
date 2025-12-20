@@ -17,8 +17,6 @@ body{
     padding: 2rem;
 }
 
-/* ---------- HEADER ---------- */
-
 header{
     backdrop-filter: blur(1.5px);
     text-align: center;
@@ -56,21 +54,18 @@ button:hover{
     box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 
-/* ---------- CARD LAYOUT ---------- */
-.wrapper {
-    display: flex;     /* allow cards to wrap to next row */
-    gap: 10px;            /* space between cards */
-    justify-content: center;  /* center cards horizontally */
-    max-width: 720px;        /* 3 cards * 220px width + gaps */
-    margin: 0 auto;          /* center wrapper on page */
+.wrapper{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .card-container{
     width: 220px;
     perspective: 1200px;
 }
-
-/* ---------- CARD FLIP SYSTEM ---------- */
 
 .card-inner{
     position: relative;
@@ -86,8 +81,6 @@ button:hover{
 .card-container.flipped .card-inner{
     transform: rotateY(180deg);
 }
-
-/* ---------- CARD FACES ---------- */
 
 .card-front,
 .card-back{
@@ -111,8 +104,6 @@ button:hover{
     color: white;
     transform: rotateY(180deg);
 }
-
-/* ---------- IMAGE ---------- */
 
 img{
     width: 100%;
